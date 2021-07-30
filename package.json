@@ -1,6 +1,6 @@
 {
   "name": "@inetsoft/d3-inetsoft",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin for D3 that allows D3 charts to be integrated into InetSoft dashboards.",
   "homepage": "https://github.com/inetsoft-technology/d3-inetsoft#readme",
   "repository": {
