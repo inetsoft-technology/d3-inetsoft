@@ -30,9 +30,6 @@
     "default": "./src/index.js"
   },
   "sideEffects": false,
-  "dependencies": {
-    "d3-fetch": "^3.0.1"
-  },
   "devDependencies": {
     "eslint": "7",
     "mocha": "8",

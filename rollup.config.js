@@ -10,11 +10,13 @@ const copyright = readFileSync("./LICENSE", "utf-8")
     .map(line => line.replace(/^Copyright\s+/, ""))
     .join(", ");
 
+const fileName = meta.name.replace(/^@[^/]+\//, "");
+
 const config = {
     input: "src/index.js",
     external: Object.keys(meta.dependencies || {}).filter(key => /^d3-/.test(key)),
     output: {
-        file: `dist/${meta.name}.js`,
+        file: `dist/${fileName}.js`,
         name: "d3",
         format: "umd",
         indent: false,
@@ -31,7 +33,7 @@ export default [
         ...config,
         output: {
             ...config.output,
-            file: `dist/${meta.name}.min.js`
+            file: `dist/${fileName}.min.js`
         },
         plugins: [
             ...config.plugins,
