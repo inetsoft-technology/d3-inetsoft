@@ -1,0 +1,49 @@
+{
+  "name": "@inetsoft/d3-inetsoft",
+  "version": "1.0.0",
+  "description": "Plugin for D3 that allows D3 charts to be integrated into InetSoft dashboards.",
+  "homepage": "https://github.com/inetsoft-technology/d3-inetsoft#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inetsoft-technology/d3-inetsoft.git"
+  },
+  "keywords": [
+    "d3",
+    "d3-module",
+    "inetsoft"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "InetSoft Technology",
+    "url": "https://www.inetsoft.com"
+  },
+  "type": "module",
+  "files": [
+    "dist/**/*.js",
+    "src/**/*.js"
+  ],
+  "module": "src/index.js",
+  "main": "src/index.js",
+  "jsdelivr": "dist/d3-inetsoft.min.js",
+  "exports": {
+    "umd": "./dist/d3-inetsoft.min.js",
+    "default": "./src/index.js"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "d3-fetch": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "7",
+    "mocha": "8",
+    "rollup": "2",
+    "rollup-plugin-terser": "7"
+  },
+  "scripts": {
+    "test": "mocha 'test/**/*-test.js' && eslint src test",
+    "prepublishOnly": "rm -rf dist && yarn test && rollup -c"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
