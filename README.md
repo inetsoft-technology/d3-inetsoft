@@ -23,14 +23,24 @@ d3.inetsoft("D3DataTable", loadData, "https://inetsoft.example.com");
 If you use npm, `npm install @inetsoft/d3-inetsoft`. You can also download the [latest release on GitHub](https://github.com/inetsoft-technology/d3-inetsoft/releases/latest). For use in a browser, you can load d3-inetsoft's UMD bundle from an npm based CDN such as jsDelivr; a `d3` global is exported:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@inetsoft/d3-inetsoft@1.0.3"></script>
+<script src="https://cdn.jsdelivr.net/npm/@inetsoft/d3-inetsoft@1.0.4"></script>
 <script>
     d3.inetsoft("D3DataTable", loadData)
 </script>
 ```
 
+## Version Compatibility
+
+The following table lists the compatability between versions of this plugin and the versions of the InetSoft software.
+
+| Plugin Version | InetSoft Version |
+| -------------- | ---------------- |
+| 1.0.x          | 2021             |
+
+Note that InetSoft versions prior to 2021 do not support this plugin.
+
 ## API Reference
 
-<a name="inetsoft" href="#inetsoft">#</a> d3.<b>inetsoft</b>(<i>assemblyName</i>, <i>callback</i>[, <i>origin</i>]) · [Source](https://github.com/inetsoft-technology/d3-inetsoft/blob/master/src/inetsoft.js "Source")
+<a name="inetsoft" href="#inetsoft">#</a> d3.<b>inetsoft</b>(<i>assemblyName</i>, <i>callback</i>[, <i>origin</i>][, <i>normalize</i>]) · [Source](https://github.com/inetsoft-technology/d3-inetsoft/blob/master/src/inetsoft.js "Source")
 
-Connects to the enclosing dashboard and loads data from the specified assembly. If <i>origin</i> is specified, only message events with that origin are accepted. Otherwise, only message events with the same origin as the HTML page are accepted. When new data is received <i>callback</i> is invoked with a [`TableData`](https://www.inetsoft.com/docs/2020.1/web-api/#worksheets-open-data_response_fields) object as the argument.
+Connects to the enclosing dashboard and loads data from the specified assembly. If <i>origin</i> is specified, only message events with that origin are accepted. Otherwise, only message events with the same origin as the HTML page are accepted. If the optional <i>normalize</i> argument is `true`, the table data will be normalized to be the same as that returned by `d3.csv()`. When new data is received <i>callback</i> is invoked with a [`TableData`](https://www.inetsoft.com/docs/2020.1/web-api/#worksheets-open-data_response_fields) object as the argument.
