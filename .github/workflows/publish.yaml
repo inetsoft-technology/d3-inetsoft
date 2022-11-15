@@ -6,13 +6,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@inetsoft'
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
       - run: yarn
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: mkdir -p META-INF/resources/webjars/d3-inetsoft/$(npm info . version)
+      - run: cp -R dist src webjars-requirejs.js META-INF/resources/webjars/d3-inetsoft/$(npm info . version)
+      - run: jar -cf d3-inetsoft-$(npm info . version).jar META-INF
+      - run: mvn deploy:deploy-file -Dfile=d3-inetsoft-$(npm info . version).jar -DrepositoryId=github -Durl= -DgroupId=com.inetsoft.webjars -DartifactId=d3-inetsoft -Dversion=$(npm info . version) -DgeneratePom=true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

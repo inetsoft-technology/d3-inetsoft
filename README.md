@@ -23,7 +23,7 @@ d3.inetsoft("D3DataTable", loadData, "https://inetsoft.example.com");
 If you use npm, `npm install @inetsoft/d3-inetsoft`. You can also download the [latest release on GitHub](https://github.com/inetsoft-technology/d3-inetsoft/releases/latest). For use in a browser, you can load d3-inetsoft's UMD bundle from an npm based CDN such as jsDelivr; a `d3` global is exported:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@inetsoft/d3-inetsoft@1.0.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@inetsoft/d3-inetsoft@1.0.5"></script>
 <script>
     d3.inetsoft("D3DataTable", loadData)
 </script>
