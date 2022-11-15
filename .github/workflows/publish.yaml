@@ -23,6 +23,6 @@ jobs:
       - run: mkdir -p META-INF/resources/webjars/d3-inetsoft/$(npm info . version)
       - run: cp -R dist src webjars-requirejs.js META-INF/resources/webjars/d3-inetsoft/$(npm info . version)
       - run: jar -cf d3-inetsoft-$(npm info . version).jar META-INF
-      - run: mvn deploy:deploy-file -Dfile=d3-inetsoft-$(npm info . version).jar -DrepositoryId=github -Durl= -DgroupId=com.inetsoft.webjars -DartifactId=d3-inetsoft -Dversion=$(npm info . version) -DgeneratePom=true
+      - run: mvn deploy:deploy-file -Dfile=d3-inetsoft-$(npm info . version).jar -DrepositoryId=github -Durl= -DgroupId=com.inetsoft.webjars -DartifactId=d3-inetsoft -Dversion=$(npm info . version) -DgeneratePom=true -Durl=https://maven.pkg.github.com/inetsoft-technology/d3-inetsoft
         env:
           GITHUB_TOKEN: ${{ github.token }}
